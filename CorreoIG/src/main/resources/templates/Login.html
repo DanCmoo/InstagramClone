@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificación de inicio de sesión - Instagram Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            background-color: #833AB4;
+            background: linear-gradient(90deg,#f77737,#e1306c,#c13584,#833ab4);
+            color: #fff;
+            padding: 24px 10px 16px 10px;
+            text-align: center;
+        }
+        .header img {
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            background: #fff;
+            object-fit: contain;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+        .content {
+            padding: 24px 20px;
+        }
+        .content h2 {
+            font-size: 22px;
+            margin-bottom: 14px;
+            color: #e1306c;
+        }
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .user-details {
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 14px 0 18px 0;
+            font-size: 17px;
+            border: 1px solid #eee;
+        }
+        .user-details span {
+            display: block;
+            margin-bottom: 7px;
+        }
+        .footer {
+            background-color: #fafafa;
+            color: #888;
+            text-align: center;
+            padding: 18px;
+            font-size: 13px;
+        }
+        @media (max-width: 700px) {
+            .container {padding: 0;}
+            .content {padding: 14px 4px;}
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Logo Instagram Clone">
+        <h1>Inicio de sesión detectado</h1>
+    </div>
+    <div class="content">
+        <h2 th:text="'Hola ' + ${username} + ','">Hola {{username}},</h2>
+        <p>
+            Te informamos que se ha producido un nuevo inicio de sesión en tu cuenta de nuestro clon de Instagram.<br>
+            Si no fuiste tú, te recomendamos cambiar tu contraseña de inmediato.
+        </p>
+        <div class="user-details">
+            <span><strong>Correo:</strong> <span th:text="${email}"></span></span>
+            <span><strong>Usuario:</strong> <span th:text="${username}"></span></span>
+            <span><strong>Fecha y hora:</strong> <span th:text="${timeLogged}"></span></span>
+        </div>
+        <p>
+            Si reconoces esta actividad, no necesitas hacer nada.<br>
+            Si tienes dudas o detectas actividad sospechosa, por favor contacta a soporte inmediatamente.
+        </p>
+    </div>
+    <div class="footer">
+        Este es un mensaje automático, por favor no respondas a este correo.<br>
+    </div>
+</div>
+</body>
+</html>
